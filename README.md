@@ -168,5 +168,6 @@ None
 Advanced features?
 
 ## Created by
-Jason Francis
+Kerrick Wolf
+
 ```
