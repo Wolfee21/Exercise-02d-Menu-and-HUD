@@ -1,31 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/Menu.gd" type="Script" id=1]
 [ext_resource path="res://UI/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Asteroid/Asteroid.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=6]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Control
-
-func _ready():
-  Global.update_score(0)
-  Global.update_time(0)
-  Global.update_lives(0)
-
-func update_score():
-  $Score.text = \"Score: \" + str(Global.score)
-
-func update_lives():
-  $Lives.text = \"Lives: \" + str(Global.lives)
-
-func update_time():
-  $Time.text = \"Time: \" + str(Global.time)
-
-func _on_Timer_timeout():
-  Global.update_time(-1)
-"
 
 [node name="Game" type="Node2D"]
 __meta__ = {
@@ -50,7 +29,6 @@ position = Vector2( 800, 500 )
 [node name="Enemy" parent="Enemy_Container" instance=ExtResource( 5 )]
 
 [node name="UI" type="CanvasLayer" parent="."]
-script = SubResource( 1 )
 
 [node name="HUD" type="Control" parent="UI"]
 margin_right = 40.0
@@ -70,6 +48,7 @@ __meta__ = {
 [node name="Time" type="Label" parent="UI/HUD"]
 margin_right = 1024.0
 margin_bottom = 30.0
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
